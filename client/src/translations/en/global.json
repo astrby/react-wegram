@@ -1,0 +1,56 @@
+{
+    "nb":{
+        "login": "Login",
+        "signup": "Sign up",
+        "contact": "Contact",
+        "createpost":"Create post",
+        "myposts":"My posts",
+        "profile":"Profile",
+        "logout":"Log out"
+    },
+
+    "index":{
+        "posts": "Posts",
+        "postedby":"Posted by",
+        "noposts": "There are no posts."
+    },
+    
+    "myposts":{
+        "myposts": "My posts"
+    },
+
+    "login":{
+        "email": "Email",
+        "password": "Password",
+        "button": "Login"
+    },
+
+    "signup":{
+        "username": "Username",
+        "name": "Name",
+        "email": "Email",
+        "password": "Password",
+        "button": "Sign up"
+    },
+
+    "contact":{
+        "comment": "Write a message down below if you have any comment or suggestion.",
+        "name": "Name",
+        "email": "Email",
+        "message": "Message",
+        "button": "Send"
+    },
+    "profile":{
+        "profile": "Profile",
+        "change":"To change your profile picture, select an image below:",
+        "username": "Username",
+        "name": "Name",
+        "button": "Save"
+    },
+    "footer":{
+        "footer": "All rights reserved. 2023"
+    },
+    "post":{
+        "comment": "Comments"
+    }
+}

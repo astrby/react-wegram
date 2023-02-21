@@ -1,0 +1,10 @@
+.wrap-container{
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
+}
+
+.body{
+    padding-top: 8rem;
+    flex: 1;
+}

@@ -1,0 +1,56 @@
+{
+    "nb":{
+        "login": "Iniciar sesión",
+        "signup": "Registrarse",
+        "contact": "Contacto",
+        "createpost":"Crear publicación",
+        "myposts":"Mis publicaciones",
+        "profile":"Perfil",
+        "logout":"Cerrar sesión"
+    },
+
+    "index":{
+        "posts": "Publicaciones",
+        "postedby":"Publicado por",
+        "noposts": "No hay publicaciones."
+    },
+    
+    "myposts":{
+        "myposts": "Mis publicaciones"
+    },
+
+    "login":{
+        "email": "Correo electrónico",
+        "password": "Contraseña",
+        "button": "Ingresar"
+    },
+
+    "signup":{
+        "username": "Nombre de usuario",
+        "name": "Nombre",
+        "email": "Correo electrónico",
+        "password": "Contraseña",
+        "button": "Registrarse"
+    },
+
+    "contact":{
+        "comment": "Para realizar un comentario o sugerencia, por favor escribirlo en el siguiente apartado.",
+        "name": "Nombre",
+        "email": "Correo electrónico",
+        "message": "Mensaje",
+        "button": "Enviar"
+    },
+    "profile":{
+        "profile": "Perfil",
+        "change":"Para cambiar la foto de perfil, seleccione un archivo a continuación:",
+        "username": "Nombre de Usuario",
+        "name": "Nombre",
+        "button": "Guardar"
+    },
+    "footer":{
+        "footer": "Todos los derechos reservados. 2023"
+    },
+    "post":{
+        "comment": "Comentarios"
+    }
+}
