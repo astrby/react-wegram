@@ -26,7 +26,7 @@ const Index = () => {
 
   const handleLikes = async(postId) =>{
     if(loginData.length >0){
-      await axios.post('http://localhost:3001/postLike',{
+      await axios.post('https://react-wegram.vercel.app/postLike',{
       userId: loginData[0].id, postId: postId
       })
       if(like === true){

@@ -23,7 +23,7 @@ const Login = () => {
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
 
-        const peticion = await axios.post('http://localhost:3001/login', {email: email, password: password})
+        const peticion = await axios.post('https://react-wegram.vercel.app/login', {email: email, password: password})
 
         if(peticion.data === 'notFound'){
             setAlert('error')

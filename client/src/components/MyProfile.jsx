@@ -46,7 +46,7 @@ const Profile = () => {
             loginChange({...user, name: name})
         }
         
-        await axios.post('http://localhost:3001/editProfile', {
+        await axios.post('https://react-wegram.vercel.app/editProfile', {
         id: loginData[0].id, username: username, name: name});
 
     }
