@@ -45,7 +45,7 @@ const Contacto = () => {
         <Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', left
       : '0', right:'0', width:'40%', marginTop: '-5rem'}}>Error. Debe llenar todos los campos.</Alert>
         : alert === 'sent'
-        ?<Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', left
+        ?<Alert variant='success' className='mx-auto text-center' style={{position: 'absolute', left
         : '0', right:'0', width:'40%', marginTop: '-5rem'}}>Mensaje enviado.</Alert>
         :''
       }
