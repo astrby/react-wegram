@@ -20,7 +20,7 @@ const Contacto = () => {
     const message = document.getElementById('message').value;
 
     if(!name || !email || !message){
-      setAlert('error')
+      setAlert('errorFill')
       setTimeout(() => {
         setAlert('')
       }, 2000);
@@ -40,13 +40,13 @@ const Contacto = () => {
   return (
     <Container>
       {
-        alert === 'error'
+        alert === 'errorFill'
         ?
         <Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', left
-      : '0', right:'0', width:'40%', marginTop: '-5rem'}}>Error. Debe llenar todos los campos.</Alert>
+      : '0', right:'0', width:'40%', marginTop: '-5rem'}}>{t("alert.errorFill")}</Alert>
         : alert === 'sent'
         ?<Alert variant='success' className='mx-auto text-center' style={{position: 'absolute', left
-        : '0', right:'0', width:'40%', marginTop: '-5rem'}}>Mensaje enviado.</Alert>
+        : '0', right:'0', width:'40%', marginTop: '-5rem'}}>{t("alert.sent")}</Alert>
         :''
       }
       <h5 className='mt-5 text-center'>{t("contact.comment")}</h5>

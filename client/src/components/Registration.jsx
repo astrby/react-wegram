@@ -22,7 +22,7 @@ const Registration = () => {
     const password = document.getElementById("password").value;
 
     if(!username|| !name|| !email|| !password){
-      setAlert('error');
+      setAlert('errorFill');
       setTimeout(()=>{
         setAlert('');
       }, 2000)
@@ -50,21 +50,20 @@ const Registration = () => {
   return (
     <Container>
       {
-        alert === 'error'
+        alert === 'errorFill'
         ?
-          <Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', width: '40%', left: '0', right: '0', marginTop: '-4rem'}}>
-            Error. Debe llenar todos los campos.
+          <Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', width: '40%', left: '0', right: '0', marginTop: '-4rem'}}>{t("alert.errorFill")}
           </Alert>
         : alert ==='exists'
         ? 
         <Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', left:'0', right
-        :'0', width: '40%', marginTop:'-4rem'}}>Ya existe una cuenta creada con el mismo email.
+        :'0', width: '40%', marginTop:'-4rem'}}>{t("alert.errorEmail")}
         </Alert>
         : 
         alert ==='success'
         ? 
           <Alert variant='success' className='mx-auto text-center' style={{position: 'absolute', left:'0', right
-        :'0', width: '40%', marginTop:'-4rem'}}>Usuario registrado correctamente.</Alert>
+        :'0', width: '40%', marginTop:'-4rem'}}>{t("alert.registered")}</Alert>
         :''
       }
 

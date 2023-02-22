@@ -38,6 +38,7 @@ const Profile = () => {
         setLike(true)
         }
     }else{
+      window.scroll({top: 0})
       setAlert('errorLogin');
       setTimeout(() => {
         setAlert('');
@@ -68,7 +69,7 @@ const Profile = () => {
         {
           alert === 'errorLogin'
           ?
-          <Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', left: 0, right: 0, width: '40%', marginTop: '-5rem'}}>Debe Iniciar sesión.</Alert>
+          <Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', left: 0, right: 0, width: '40%', marginTop: '-5rem'}}>{t("alert.errorLogin")}</Alert>
           :''
         }
         <Row className='justify-content-start'>

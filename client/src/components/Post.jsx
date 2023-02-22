@@ -87,10 +87,10 @@ const Post = () => {
         {
             alert === 'errorLogin'
             ?
-            <Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', left: 0, right: 0, width: '40%', marginTop: '-5rem'}}>Debe Iniciar sesión.</Alert>
+            <Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', left: 0, right: 0, width: '40%', marginTop: '-5rem'}}>{t("alert.errorLogin")}</Alert>
             : alert === 'errorEmpty'
             ?
-            <Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', left: 0, right: 0, width: '40%', marginTop: '-5rem'}}>El campo no debe estar vacío.</Alert>
+            <Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', left: 0, right: 0, width: '40%', marginTop: '-5rem'}}>{t("alert.sent")}</Alert>
             :''
         }
         {

@@ -52,5 +52,13 @@
     },
     "post":{
         "comment": "Comments"
+    },
+    "alert":{
+        "errorLogin": "You must login first.",
+        "errorFill": "You must fill all inputs.",
+        "sent": "Message sent successfully.",
+        "errorAccount": "Account not found.",
+        "errorEmail": "Email is already registered.",
+        "registered": "Successfully registered"
     }
 }

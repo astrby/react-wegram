@@ -52,5 +52,13 @@
     },
     "post":{
         "comment": "Comentarios"
+    },
+    "alert":{
+        "errorLogin": "Debe iniciar sesión.",
+        "errorFill": "Debe llenar todos los campos.",
+        "sent": "Mensaje enviado correctamente.",
+        "errorAccount": "Cuenta no encontrada.",
+        "errorEmail": "El email ya se encuentra registrado.",
+        "registered": "Registrado correctamente"
     }
 }

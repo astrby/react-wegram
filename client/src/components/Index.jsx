@@ -35,6 +35,7 @@ const Index = () => {
         setLike(true)
       }
     }else{
+      window.scroll({top: 0})
       setAlert('errorLogin');
       setTimeout(() => {
         setAlert('');
@@ -53,7 +54,7 @@ const Index = () => {
       {
         alert === 'errorLogin'
         ?
-        <Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', left: 0, right: 0, width: '40%', marginTop: '-5rem'}}>Debe iniciar sesión.</Alert>
+        <Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', left: 0, right: 0, width: '40%', marginTop: '-5rem'}}>{t("alert.errorLogin")}</Alert>
         : ''
       }
       <h3 className='text-center pb-5 mt-5'>{t("index.posts")}</h3>

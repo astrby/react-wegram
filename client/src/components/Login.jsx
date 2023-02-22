@@ -23,16 +23,22 @@ const Login = () => {
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
 
-        const peticion = await axios.post('https://react-wegram.vercel.app/login', {email: email, password: password})
-
-        if(peticion.data === 'notFound'){
-            setAlert('error')
+        if(!email || !password){
+            setAlert('errorFill')
             setTimeout(() => {
-                setAlert('')
+              setAlert('')
             }, 2000);
-        }else{
-            loginData(peticion.data)
-            navigate('/')
+        }else {
+            const peticion = await axios.post('https://react-wegram.vercel.app/login', {email: email, password: password})
+            if(peticion.data === 'notFound'){
+                setAlert('errorAccount')
+                setTimeout(() => {
+                    setAlert('')
+                }, 2000);
+            }else{
+                loginData(peticion.data)
+                navigate('/')
+            }
         }
     }
 
@@ -43,13 +49,16 @@ const Login = () => {
     return (
         <Container fluid='md'>
             {
-                alert === 'error'
+                alert === 'errorFill'
                 ?
-                <Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', left: '0', right: '0', width: '40%', marginTop: '-4rem'}}>Cuenta no encontrada</Alert>
+                <Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', left: '0', right:'0', width:'40%', marginTop: '-5rem'}}>{t("alert.errorFill")}</Alert>
+                : alert === 'errorAccount'
+                ?
+                <Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', left: '0', right: '0', width: '40%', marginTop: '-4rem'}}>{t("alert.errorAccount")}</Alert>
                 : ''
             }
             
-            <Form className='text-center' onSubmit={send}>
+            <Form className='text-center mt-5' onSubmit={send}>
                 <Form.Group>
                     <Form.Label>{t("login.email")}</Form.Label>
                     <Form.Control id='email'/>
