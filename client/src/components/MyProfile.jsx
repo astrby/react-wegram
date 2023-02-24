@@ -63,13 +63,13 @@ const Profile = () => {
     },[])
 
   return (
-    <Container className='text-center'>
+    <Container className='text-center w-50'>
         <Form fluid='ms' onSubmit={handleSave}>
             <h5>{t("profile.profile")}</h5>
             <Image className='mt-4' src={imgSrc} style={{borderRadius: '50%', width: '10rem', height: '10rem'}}/>
             <Form.Group className='mt-5'>
                 <Form.Text>{t("profile.change")}</Form.Text>
-                <Form.Control type='file' onChange={handleImg} id='img'/>
+                <Form.Control type='file' onChange={handleImg} id='img' />
             </Form.Group>
             <Form.Group className='mt-4'>
                 <Form.Text className='mt-5' style={{fontWeight: 'bold'}}>{t("profile.username")}</Form.Text>

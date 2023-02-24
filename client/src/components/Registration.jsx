@@ -48,7 +48,7 @@ const Registration = () => {
   },[])
 
   return (
-    <Container>
+    <Container className=' w-50'>
       {
         alert === 'errorFill'
         ?
@@ -67,7 +67,7 @@ const Registration = () => {
         :''
       }
 
-      <Form className='text-center mt-5' onSubmit={send}>
+      <Form className='text-center' onSubmit={send}>
         <Form.Group>
             <Form.Label>{t("signup.username")}</Form.Label>
             <Form.Control id='username'/>

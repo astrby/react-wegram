@@ -54,11 +54,11 @@ const Index = () => {
       {
         alert === 'errorLogin'
         ?
-        <Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', left: 0, right: 0, width: '40%', marginTop: '-5rem'}}>{t("alert.errorLogin")}</Alert>
+        <Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', left: 0, right: 0, width: '50%', marginTop: '-5rem'}}>{t("alert.errorLogin")}</Alert>
         : ''
       }
-      <h3 className='text-center pb-5 mt-5'>{t("index.posts")}</h3>
-        <Row className='justify-content-start'>
+      <h3 className='text-center pb-4'>{t("index.posts")}</h3>
+        <Row className='justify-content-center'>
           {
             posts.length !== 0
             ?

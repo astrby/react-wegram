@@ -42,8 +42,8 @@ const MyPosts = () => {
 
     return (
         <Container fluid='md' className='text-center w-100'>
-            <h3 className='text-center pb-5'>{t("myposts.myposts")}</h3>
-            <Row className='justify-content-start'>
+            <h3 className='text-center'>{t("myposts.myposts")}</h3>
+            <Row className='justify-content-center'>
             {
                 posts.length !== 0
                 ?

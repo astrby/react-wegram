@@ -49,7 +49,7 @@ const Contacto = () => {
         : '0', right:'0', width:'40%', marginTop: '-5rem'}}>{t("alert.sent")}</Alert>
         :''
       }
-      <h5 className='mt-5 text-center'>{t("contact.comment")}</h5>
+      <h5 className='text-center'>{t("contact.comment")}</h5>
       <Form className='mt-5 text-center' onSubmit={handleSend}>
         <Form.Group>
           <Form.Label>{t("contact.name")}</Form.Label>

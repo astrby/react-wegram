@@ -47,7 +47,7 @@ const Login = () => {
     },[language])
 
     return (
-        <Container fluid='md'>
+        <Container fluid='md w-50'>
             {
                 alert === 'errorFill'
                 ?
@@ -58,7 +58,7 @@ const Login = () => {
                 : ''
             }
             
-            <Form className='text-center mt-5' onSubmit={send}>
+            <Form fluid='md' className='text-center' onSubmit={send}>
                 <Form.Group>
                     <Form.Label>{t("login.email")}</Form.Label>
                     <Form.Control id='email'/>

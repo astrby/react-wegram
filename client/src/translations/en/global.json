@@ -51,7 +51,8 @@
         "footer": "All rights reserved. 2023"
     },
     "post":{
-        "comment": "Comments"
+        "comment": "Comments",
+        "buttonPost": "Post"
     },
     "alert":{
         "errorLogin": "You must login first.",

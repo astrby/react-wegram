@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import Image from 'react-bootstrap/Image'
 import axios from 'axios'
 import {AiOutlineHeart} from 'react-icons/ai'
 import {AiFillHeart} from 'react-icons/ai'
@@ -37,10 +38,11 @@ const Post = () => {
             setLike(true)
             }
         }else{
-          setAlert('errorLogin');
-          setTimeout(() => {
-            setAlert('');
-          }, 1500);
+            window.scroll({top: 0})
+            setAlert('errorLogin');
+            setTimeout(() => {
+                setAlert('');
+            }, 1500);
         }
     }
 
@@ -58,6 +60,7 @@ const Post = () => {
                 })
             }
         }else{
+            window.scroll({top: 0})
             setAlert('errorLogin');
             setTimeout(() => {
                 setAlert('');
@@ -87,21 +90,21 @@ const Post = () => {
         {
             alert === 'errorLogin'
             ?
-            <Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', left: 0, right: 0, width: '40%', marginTop: '-5rem'}}>{t("alert.errorLogin")}</Alert>
+            <Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', left: 0, right: 0, width: '50%', marginTop: '-5rem'}}>{t("alert.errorLogin")}</Alert>
             : alert === 'errorEmpty'
             ?
-            <Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', left: 0, right: 0, width: '40%', marginTop: '-5rem'}}>{t("alert.sent")}</Alert>
+            <Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', left: 0, right: 0, width: '50%', marginTop: '-5rem'}}>{t("alert.sent")}</Alert>
             :''
         }
         {
             post !== null
             ?
-             <Container className='mt-5'>
+             <Container>
                 <Row>
-                    <Col>
-                        <img src={post.urlImage} style={{borderRadius: '5px', height: '30rem', width: '30rem'}}/>
+                    <Col sm={8} className='text-center'>
+                        <Image src={post.urlImage} fluid style={{borderRadius: '5px', height: '25rem', width: '20rem'}}/>
                     </Col>
-                    <Col className='text-center mt-4'>
+                    <Col className='text-center mt-4' sm={4}>
                         <p className='d-inline'><button style={{borderStyle: 'none', backgroundColor: 'white'}} onClick={() => handleLike(post._id)}>
                         {
                             likes.length > 0
@@ -128,25 +131,25 @@ const Post = () => {
                         }
                         </button> {post.likes}</p>
                         <h4 className='mt-4 mb-4'><a href={`/${post.userId}`} style={{textDecoration: 'none'}}>{post.username}</a> {post.description}</h4>
-                        <Row >
+                        <Row className='gap-1'>
                             <Col sm={10}>
                                 <Form.Control id='comment'/>
                             </Col>
                             <Col sm={2} style={{marginLeft: '-1rem'}}>
-                                <Button onClick={()=>{handleComment(post._id); reload()}}>Publicar</Button>
+                                <Button onClick={()=>{handleComment(post._id); reload()}}>{t("post.buttonPost")}</Button>
                             </Col>
+                             <h5 className='mt-4 mb-3' style={{fontWeight: 'bold'}}>{t("post.comment")}:</h5>
+                            <Container style={{borderStyle: 'solid', borderRadius: '5px', borderWidth: '1px',borderColor: '#CFD4DA', overflowY: 'scroll'}}>
+                                {
+                                    comments !== null
+                                    ?
+                                    comments.map((comment,i)=>{
+                                        return <p key={i} style={{textAlign: 'left'}}><a href={`/${comment.userId}`} style={{fontWeight: 'bold', textDecoration: 'none'}}>{comment.username}</a> {comment.comment}</p>
+                                    })
+                                    :''
+                                }
+                            </Container>
                         </Row>
-                        <Container className='mt-4'>
-                            <h5 className='mt-4 mb-4' style={{fontWeight: 'bold'}}>{t("post.comment")}:</h5>
-                            {
-                                comments !== null
-                                ?
-                                comments.map((comment,i)=>{
-                                    return <p key={i}><a href={`/${comment.userId}`} style={{fontWeight: 'bold', textDecoration: 'none'}}>{comment.username}</a> {comment.comment}</p>
-                                })
-                                :''
-                            }
-                        </Container>
                     </Col>
                 </Row>
             </Container>

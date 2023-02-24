@@ -65,14 +65,14 @@ const Profile = () => {
   },[like])
 
   return (
-    <Container fluid='md' className='text-center w-100 mt-5'>
+    <Container fluid='md' className='text-center w-100'>
         {
           alert === 'errorLogin'
           ?
           <Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', left: 0, right: 0, width: '40%', marginTop: '-5rem'}}>{t("alert.errorLogin")}</Alert>
           :''
         }
-        <Row className='justify-content-start'>
+        <Row className='justify-content-center'>
           {
             posts.length > 0
             ?
