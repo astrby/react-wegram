@@ -50,7 +50,7 @@ const Index = () => {
   },[like])
 
   return (
-    <Container fluid='md' className='text-center w-100'>
+    <Container fluid='md' className='text-center'>
       {
         alert === 'errorLogin'
         ?
@@ -58,7 +58,7 @@ const Index = () => {
         : ''
       }
       <h3 className='text-center pb-4'>{t("index.posts")}</h3>
-        <Row className='justify-content-center'>
+        <Row className='w-100 justify-content-center' style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, max-content))'}}>
           {
             posts.length !== 0
             ?

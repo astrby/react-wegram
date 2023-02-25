@@ -100,11 +100,12 @@ const Post = () => {
             post !== null
             ?
              <Container>
-                <Row>
-                    <Col sm={8} className='text-center'>
-                        <Image src={post.urlImage} fluid style={{borderRadius: '5px', height: '25rem', width: '20rem'}}/>
+                <Row md={12} className='w-100'>
+                    <Col md={6} className='text-center mb-4'>
+                        <Image src={post.urlImage} fluid style={{borderRadius: '5px', height: '25rem', minWidth: '20rem', maxWidth: '20rem'}}/>
                     </Col>
-                    <Col className='text-center mt-4' sm={4}>
+                    
+                    <Col className='text-center mt-2' md={6}>
                         <p className='d-inline'><button style={{borderStyle: 'none', backgroundColor: 'white'}} onClick={() => handleLike(post._id)}>
                         {
                             likes.length > 0
@@ -131,25 +132,27 @@ const Post = () => {
                         }
                         </button> {post.likes}</p>
                         <h4 className='mt-4 mb-4'><a href={`/${post.userId}`} style={{textDecoration: 'none'}}>{post.username}</a> {post.description}</h4>
-                        <Row className='gap-1'>
-                            <Col sm={10}>
-                                <Form.Control id='comment'/>
-                            </Col>
-                            <Col sm={2} style={{marginLeft: '-1rem'}}>
-                                <Button onClick={()=>{handleComment(post._id); reload()}}>{t("post.buttonPost")}</Button>
-                            </Col>
-                             <h5 className='mt-4 mb-3' style={{fontWeight: 'bold'}}>{t("post.comment")}:</h5>
-                            <Container style={{borderStyle: 'solid', borderRadius: '5px', borderWidth: '1px',borderColor: '#CFD4DA', overflowY: 'scroll'}}>
-                                {
-                                    comments !== null
-                                    ?
-                                    comments.map((comment,i)=>{
-                                        return <p key={i} style={{textAlign: 'left'}}><a href={`/${comment.userId}`} style={{fontWeight: 'bold', textDecoration: 'none'}}>{comment.username}</a> {comment.comment}</p>
-                                    })
-                                    :''
-                                }
-                            </Container>
-                        </Row>
+                        <h6 className='mt-5 mb-3' style={{fontWeight: 'bold'}}>{t("post.comment")}:</h6>
+                        <Container style={{borderStyle: 'solid', borderRadius: '5px', borderWidth: '1px',borderColor: '#CFD4DA', height: '10rem', overflowY: 'scroll', minWidth: '20rem', maxWidth: '20rem'}}>
+                            {
+                                comments !== null
+                                ?
+                                comments.map((comment,i)=>{
+                                    return <p key={i} style={{textAlign: 'left'}}><a href={`/${comment.userId}`} style={{fontWeight: 'bold', textDecoration: 'none'}}>{comment.username}</a> {comment.comment}</p>
+                                })
+                                :''
+                            }
+                        </Container>
+                        <Container  style={{width: '20rem'}}>
+                            <Row className='gap-1'>
+                                <Col xs={10} style={{marginLeft: '-0.75rem'}}>
+                                    <Form.Control id='comment'/>
+                                </Col>
+                                <Col xs={2} style={{marginLeft: '-2rem'}}>
+                                    <Button onClick={()=>{handleComment(post._id); reload()}}>{t("post.buttonPost")}</Button>
+                                </Col>
+                            </Row>
+                        </Container>
                     </Col>
                 </Row>
             </Container>
