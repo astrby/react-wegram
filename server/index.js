@@ -168,7 +168,26 @@ app.post('/editProfile', async(req, res)=>{
 app.post('/postLike', async(req,res)=>{
     const {userId, postId} = req.body;
 
-    
+    try{
+        const like = await Like.find({postId: postId, userId: userId})
+        if(like !== null){
+            await Like.deleteOne({postId: postId, userId: userId})
+            .then(
+                await Post.findOneAndUpdate({_id: postId}, {$inc: {likes: -1}}, {returnOriginal: false})
+            )
+        }else{
+            const likeDB = new Like({
+                userId: userId,
+                postId: postId,
+            })
+            await likeDB.save()
+            .then(
+                await Post.findOneAndUpdate({_id: postId}, {$inc: {likes: 1}}, {returnOriginal: false})
+            )
+        }
+    }catch(error){
+        console.log(error)
+    }
 })
 
 app.post('/getLikes', async(req, res)=>{
