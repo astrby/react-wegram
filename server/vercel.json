@@ -27,7 +27,7 @@
           ]
         },
         {
-          "source": "/react-wegram.vercel.app/(.*)",
+          "source": "/react-wegram-frontend.vercel.app//(.*)",
           "headers": [
             { "key": "Access-Control-Allow-Origin", "value": "*" }
           ]
