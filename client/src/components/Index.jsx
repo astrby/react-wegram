@@ -47,7 +47,6 @@ const Index = () => {
         }else{
           setLike(true)
         }
-        console.log(like)
       }, 750);
     }
   }
