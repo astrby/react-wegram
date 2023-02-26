@@ -308,3 +308,7 @@ app.post('/getProfilePosts', async(req,res)=>{
         console.log(error)
     }
 })
+
+app.listen(3001, ()=>{
+    console.log("Running on port 3001")
+})
