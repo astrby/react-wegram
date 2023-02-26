@@ -54,7 +54,7 @@ const NB = () => {
   }, [loginData])
 
   return (
-    <Navbar variant='light' expand='sm' className='w-100'>
+    <Navbar variant='light' expand='sm' className='w-100' style={{marginBottom: '-3rem'}}>
         <Container>
             <Navbar.Brand href='/'><img style={{width: '3rem', marginRight:'0.5rem'}} src={Logo}/>Wegram</Navbar.Brand>
             <Navbar.Toggle className='ms-auto'/>

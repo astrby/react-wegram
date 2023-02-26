@@ -103,12 +103,11 @@ const Post = () => {
             post !== null
             ?
              <Container>
-                <Row md={12} className='w-100'>
-                    <Col md={6} className='text-center mb-4'>
-                        <Image src={post.urlImage} fluid style={{borderRadius: '5px', height: '25rem', minWidth: '20rem', maxWidth: '20rem'}}/>
+                <Row className='w-100'>
+                    <Col md={6} className='text-center mb-4  ms-2'>
+                        <Image src={post.urlImage} fluid style={{borderRadius: '5px', height: '25rem'}}/>
                     </Col>
-                    
-                    <Col className='text-center mt-2' md={6}>
+                    <Col className='text-center mt-2' md={4}>
                         <p className='d-inline'><button style={{borderStyle: 'none', backgroundColor: 'white'}} onClick={() => handleLike(post._id)}>
                         {
                             likes.length > 0
