@@ -20,12 +20,12 @@ mongoose.connect(uri)
 .catch(e => console.log(e));
 
 const corsOptions ={
-    origin: 'https://react-wegram-frontend.vercel.app/',
+    origin: 'https://react-wegram-frontend.vercel.app',
     credentials: true,
     optionSuccessStatus: 200
 }
 
-app.use(cors(corsOptions));
+app.use(cors(corsOptions))
 app.use(express.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
