@@ -1,5 +1,4 @@
 const express = require("express")
-const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const {encrypt, compare} = require('./handleBcrypt')
@@ -25,7 +24,7 @@ const corsOptions ={
     credentials: true,
     optionSuccessStatus: 200
 }
-
+const app = express();
 app.use(cors(corsOptions))
 app.use(express.json())
 app.use(bodyParser.urlencoded({extended: true}))
