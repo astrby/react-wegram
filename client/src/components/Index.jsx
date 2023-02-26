@@ -21,14 +21,17 @@ const Index = () => {
   const[t, i18n] = useTranslation("global");
   const loginData = userData((state)=>state.user)
   const[likes, setLikes] = useState([])
-  const[like, setLike] = useState('');
+  const[like, setLike] = useState(true);
   const[alert, setAlert] = useState('');
 
   const handleLikes = async(postId) =>{
+    
     if(loginData.length >0){
-      await axios.post('https://react-wegram.vercel.app/postLike',{
-      userId: loginData[0].id, postId: postId
+      setTimeout(async() => {
+        await axios.post('https://react-wegram.vercel.app/postLike',{
+        userId: loginData[0].id, postId: postId
       })
+      }, 500);
       if(like === true){
         setLike(false);
       }else{
@@ -70,7 +73,25 @@ const Index = () => {
                     <Card.Text><a href={`/${post.userId}`} style={{textDecoration: 'none', fontWeight: 'bold'}}>{post.username}</a> {post.description}</Card.Text>
                     <Container className='text-center'>
                       <p className='d-inline'><button style={{borderStyle: 'none', backgroundColor: 'white'}} onClick={() => handleLikes(post._id)}>
-                        <AiOutlineHeart/>
+                        {
+                          likes.length > 0
+                          ?
+                          likes.map((like,i)=>{
+                            if(loginData[0].id === like.userId && post._id === like.postId){
+                              return <AiFillHeart key={i} style={{fontSize: '1.5rem', color: '#126BF9'}}/>
+                            }else{
+                              const nullLikes = likes.find((p)=>{
+                                return p.postId === post._id;
+                              })
+  
+                              if(!nullLikes && repetido===false){
+                                repetido = true;
+                                return <AiOutlineHeart key={i}style={{fontSize: '1.5rem', color: '#0B59C8'}}/>
+                              }
+                            }
+                          })
+                          : <AiOutlineHeart style={{fontSize: '1.5rem', color: '#126BF9'}}/>
+                        }
                         </button> {post.likes}</p>
                       <p className='d-inline'><a href={`/post/${post._id}`}className='ms-3'><BiComment  style={{fontSize: '1.5rem'}}/></a> {post.comments}</p>
                     </Container>
