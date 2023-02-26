@@ -55,7 +55,7 @@ const Post = () => {
                     setAlert('');
                 }, 1500);
             }else{
-                await axios.post('http://localhost:3001/postComment',{
+                await axios.post('https://react-wegram.vercel.app/postComment',{
                     userId: loginData[0].id, postId: postId, comment: comment
                 })
             }
