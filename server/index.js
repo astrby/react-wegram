@@ -159,7 +159,11 @@ app.post('/editProfile', async(req, res)=>{
 })
 
 app.post('/postLike', async(req,res)=>{
-    res.header("Access-Control-Allow-Origin", "https://react-wegram.vercel.app");
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, OPTIONS, DELETE');
+    
     const {userId, postId} = req.body;
 
     try{
