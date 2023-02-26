@@ -29,3 +29,9 @@ export const getComments = async(postId, setComments)=>{
   setComments(peticion.data)
 }
 
+export const postLike = async(userId, postId)=>{
+  await axios.post('https://react-wegram.vercel.app/postLike',{
+    userId: userId, postId: postId
+  })
+}
+

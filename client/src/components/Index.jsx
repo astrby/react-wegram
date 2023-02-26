@@ -11,7 +11,7 @@ import {AiOutlineHeart} from 'react-icons/ai'
 import {BiComment} from 'react-icons/bi'
 import {userData} from './storage/userData'
 import {AiFillHeart} from 'react-icons/ai'
-import {getPosts, getLikes} from './connections/apiConnection'
+import {getPosts, getLikes, postLike} from './connections/apiConnection'
 import Alert from 'react-bootstrap/Alert'
 
 const Index = () => {
@@ -24,12 +24,9 @@ const Index = () => {
   const[like, setLike] = useState(true);
   const[alert, setAlert] = useState('');
 
-  const handleLikes = async(postId) =>{
+  const handleLikes = (postId) =>{
     if(loginData.length > 0){
-        await axios.post('https://react-wegram.vercel.app/postLike',{
-        userId: loginData[0].id, postId: postId
-      })
-
+        postLike(loginData[0].id, postId);
     }else{
       window.scroll({top: 0})
       setAlert('errorLogin');
