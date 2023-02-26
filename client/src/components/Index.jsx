@@ -27,24 +27,17 @@ const Index = () => {
   const handleLikes = (postId) =>{
     if(loginData.length > 0){
         postLike(loginData[0].id, postId);
+        if(like === true){
+          setLike(false);
+        }else{
+          setLike(true)
+        }
     }else{
       window.scroll({top: 0})
       setAlert('errorLogin');
       setTimeout(() => {
         setAlert('');
       }, 1500);
-    }
-  }
-
-  const reloadLikes = ()=>{
-    if(loginData.length > 0){
-      setTimeout(() => {
-        if(like === true){
-          setLike(false);
-        }else{
-          setLike(true)
-        }
-      }, 750);
     }
   }
 
@@ -74,7 +67,7 @@ const Index = () => {
                   <Card.Body className='mt-3'>
                     <Card.Text><a href={`/${post.userId}`} style={{textDecoration: 'none', fontWeight: 'bold'}}>{post.username}</a> {post.description}</Card.Text>
                     <Container className='text-center'>
-                      <p className='d-inline'><button style={{borderStyle: 'none', backgroundColor: 'white'}} onClick={() => {handleLikes(post._id); reloadLikes()}}>
+                      <p className='d-inline'><button style={{borderStyle: 'none', backgroundColor: 'white'}} onClick={() => handleLikes(post._id)}>
                         {
                           likes.length > 0
                           ?

@@ -19,7 +19,13 @@ mongoose.connect(uri)
 .then(() =>console.log('Base de datos conectada.'))
 .catch(e => console.log(e));
 
-app.use(cors())
+const corsOptions = {
+    origin: 'https://react-wegram-frontend.vercel.app/',
+    preflightContinue: false,
+    credentials: true
+}
+
+app.use(cors(corsOptions))
 app.use(express.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
@@ -163,7 +169,7 @@ app.post('/postLike', async(req,res)=>{
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     res.setHeader('Access-Control-Allow-Credentials', true);
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, OPTIONS, DELETE');
-    
+
     const {userId, postId} = req.body;
 
     try{
