@@ -58,6 +58,7 @@ const Post = () => {
                 await axios.post('https://react-wegram.vercel.app/postComment',{
                     userId: loginData[0].id, postId: postId, comment: comment
                 })
+                console.log(comment+" "+postId )
             }
         }else{
             window.scroll({top: 0})
@@ -71,7 +72,9 @@ const Post = () => {
     const reload = () =>{
         const comment = document.getElementById('comment').value;
         if(loginData.length >0 && comment.trim()){
-            window.location.reload();
+            setTimeout(() => {
+                window.location.reload();
+            }, 500);
         } 
     }
 
