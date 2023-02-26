@@ -61,9 +61,9 @@ const Login = () => {
             <Form fluid='md' className='text-center' onSubmit={send}>
                 <Form.Group>
                     <Form.Label>{t("login.email")}</Form.Label>
-                    <Form.Control id='email'/>
+                    <Form.Control className='text-center' id='email'/>
                     <Form.Label>{t("login.password")}</Form.Label>
-                    <Form.Control id='password' type='password'/>
+                    <Form.Control className='text-center' id='password' type='password'/>
                 </Form.Group>
                 <Button type='Submit' className='mt-3'>{t("login.button")}</Button>
             </Form>

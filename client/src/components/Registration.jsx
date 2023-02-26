@@ -70,13 +70,13 @@ const Registration = () => {
       <Form className='text-center' onSubmit={send}>
         <Form.Group>
             <Form.Label>{t("signup.username")}</Form.Label>
-            <Form.Control id='username'/>
+            <Form.Control className='text-center' id='username'/>
             <Form.Label>{t("signup.name")}</Form.Label>
-            <Form.Control id='name'/>
+            <Form.Control className='text-center' id='name'/>
             <Form.Label>{t("signup.email")}</Form.Label>
-            <Form.Control id='email'/>
+            <Form.Control className='text-center' id='email'/>
             <Form.Label>{t("signup.password")}</Form.Label>
-            <Form.Control id='password'/>
+            <Form.Control className='text-center' id='password'/>
         </Form.Group>
         <Button type='Submit' className='mt-3'>{t("signup.button")}</Button>
     </Form>

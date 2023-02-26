@@ -53,11 +53,11 @@ const Contacto = () => {
       <Form className='mt-5 text-center' onSubmit={handleSend}>
         <Form.Group>
           <Form.Label>{t("contact.name")}</Form.Label>
-          <Form.Control id='name' name='name'/>
+          <Form.Control className='text-center' id='name' name='name'/>
           <Form.Label className='mt-4'>{t("contact.email")}</Form.Label>
-          <Form.Control id='email' name='email'/>
+          <Form.Control className='text-center' id='email' name='email'/>
           <Form.Label className='mt-4'>{t("contact.message")}</Form.Label>
-          <Form.Control as='textarea' id='message' name='message'/>
+          <Form.Control className='text-center' as='textarea' id='message' name='message'/>
         </Form.Group>
         <Button type='Submit' className='mt-4'>{t("contact.button")}</Button>
       </Form>
