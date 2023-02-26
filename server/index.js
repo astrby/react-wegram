@@ -175,15 +175,6 @@ app.post('/postLike', async(req,res)=>{
             .then(
                 await Post.findOneAndUpdate({_id: postId}, {$inc: {likes: -1}}, {returnOriginal: false})
             )
-        }else{
-            const likeDB = new Like({
-                userId: userId,
-                postId: postId,
-            })
-            await likeDB.save()
-            .then(
-                await Post.findOneAndUpdate({_id: postId}, {$inc: {likes: 1}}, {returnOriginal: false})
-            )
         }
     }catch(error){
         console.log(error)
