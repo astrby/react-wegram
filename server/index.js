@@ -192,7 +192,7 @@ app.post('/getLikes', async(req, res)=>{
         if(likes.length>0){
             res.send(likes)
         }else{
-            res.send('0')
+            res.send({_id: '0', userId: '0', postId: '0'})
         }
     }catch(error){
         console.log(error)
@@ -221,9 +221,6 @@ app.post('/getPost', async(req, res)=>{
             }
 
         }
-        
-
-
     }catch(error){
         console.log(error)
     }
