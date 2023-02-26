@@ -165,6 +165,8 @@ app.post('/editProfile', async(req, res)=>{
 })
 
 app.post('/postLike', async(req,res)=>{
+    res.setHeader('Access-Control-Allow-Credentials', true)
+    res.setHeader('Access-Control-Allow-Origin', '*')
     const {userId, postId} = req.body;
 
     try{
