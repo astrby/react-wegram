@@ -191,6 +191,8 @@ app.post('/getLikes', async(req, res)=>{
         const likes = await Like.find({userId: userId});
         if(likes.length>0){
             res.send(likes)
+        }else{
+            res.send('0')
         }
     }catch(error){
         console.log(error)
@@ -242,9 +244,6 @@ app.post('/postComment', async(req,res)=>{
         const comments = await Comment.find({postId: postId});
         
         await Post.findOneAndUpdate({_id: postId}, {comments: comments.length}, {returnOriginal: false})
-        
-        
-        
         
     }catch(error){
         console.log(error)

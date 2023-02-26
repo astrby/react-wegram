@@ -21,11 +21,12 @@ const Index = () => {
   const[t, i18n] = useTranslation("global");
   const loginData = userData((state)=>state.user)
   const[likes, setLikes] = useState([])
-  const[like, setLike] = useState('');
+  const[like, setLike] = useState(true);
   const[alert, setAlert] = useState('');
 
   const handleLikes = async(postId) =>{
-    if(loginData.length >0){
+    
+    if(loginData[0] !== null){
       await axios.post('https://react-wegram.vercel.app/postLike',{
       userId: loginData[0].id, postId: postId
       })
@@ -34,6 +35,7 @@ const Index = () => {
       }else{
         setLike(true)
       }
+      console.log(like)
     }else{
       window.scroll({top: 0})
       setAlert('errorLogin');
@@ -42,7 +44,7 @@ const Index = () => {
       }, 1500);
     }
   }
-
+  
   useEffect(()=>{
     i18n.changeLanguage(language)
     getPosts(setPosts);
@@ -66,7 +68,7 @@ const Index = () => {
               return <Card key={i} className='text-center ms-1 mb-1' style={{maxWidth: '18rem',minWidth:'18rem', marginRight:'1rem', marginTop:'1rem', maxHeight:'25rem', minHeight:'25rem'}}>
                 <Card.Img src={post.urlImage} style={{width: '15rem', height: '17rem', marginLeft:'-0.8rem', width:'110%', borderBottomLeftRadius:'0', borderBottomRightRadius: '0'}}/>
                 <Card.Body className='mt-3'>
-                  <Card.Text><a href={`/${post.userId}`} style={{textDecoration: 'none', fontWeight: 'bold'}}>{post.username}</a>{post.description}</Card.Text>
+                  <Card.Text><a href={`/${post.userId}`} style={{textDecoration: 'none', fontWeight: 'bold'}}>{post.username} </a>{post.description}</Card.Text>
                   <Container className='text-center'>
                     <p className='d-inline'><button style={{borderStyle: 'none', backgroundColor: 'white'}} onClick={() => handleLikes(post._id)}>
                      {
@@ -74,12 +76,12 @@ const Index = () => {
                       ?
                         likes.map((like,i)=>{
                           if(post._id === like.postId && loginData[0].id === like.userId){
-                            return <p key={i}>No me gusta</p>
+                            return <AiFillHeart key={i} style={{fontSize: '1.5rem', color: '#0F6EFE'}}/> 
                           }else{
-                            return <p key={i}>Me gusta</p>
+                            return <AiOutlineHeart key={i} style={{fontSize: '1.5rem', color: '#0F6EFE'}}/>
                           }
                         })
-                      :<p>Me gusta</p>
+                      : <AiOutlineHeart key={i} style={{fontSize: '1.5rem', color: '#0F6EFE'}}/>
                      }
                       </button> {post.likes}</p>
                     <p className='d-inline'><a href={`/post/${post._id}`}className='ms-3'><BiComment  style={{fontSize: '1.5rem'}}/></a> {post.comments}</p>
