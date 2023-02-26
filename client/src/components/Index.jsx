@@ -21,22 +21,25 @@ const Index = () => {
   const[t, i18n] = useTranslation("global");
   const loginData = userData((state)=>state.user)
   const[likes, setLikes] = useState([])
-  const[like, setLike] = useState(true);
+  const[like, setLike] = useState('');
   const[alert, setAlert] = useState('');
 
-  const handleLikes = async(postId) =>{
+  const handleLikes = (postId) =>{
     
     if(loginData.length >0){
       setTimeout(async() => {
         await axios.post('https://react-wegram.vercel.app/postLike',{
         userId: loginData[0].id, postId: postId
       })
+
+      
       }, 500);
       if(like === true){
         setLike(false);
       }else{
         setLike(true)
       }
+      console.log(like)
     }else{
       window.scroll({top: 0})
       setAlert('errorLogin');
