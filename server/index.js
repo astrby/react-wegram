@@ -21,6 +21,7 @@ mongoose.connect(uri)
 
 const corsOptions ={
     origin: 'https://react-wegram-frontend.vercel.app',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     optionSuccessStatus: 200
 }
