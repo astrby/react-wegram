@@ -159,6 +159,7 @@ app.post('/editProfile', async(req, res)=>{
 })
 
 app.post('/postLike', async(req,res)=>{
+    res.header("Access-Control-Allow-Origin", "https://react-wegram.vercel.app");
     const {userId, postId} = req.body;
 
     try{
