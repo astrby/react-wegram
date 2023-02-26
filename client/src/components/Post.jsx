@@ -113,6 +113,7 @@ const Post = () => {
                             likes.length > 0
                             ?
                             likes.map((l,i)=>{
+                                var repetido = false;
                                 if(l.postId === post._id){
                                     if(l.like === false){
                                         return <AiOutlineHeart key={0}style={{fontSize: '1.5rem', color: '#0B59C8'}}/>
@@ -127,7 +128,8 @@ const Post = () => {
                                 })
 
                                 if(!nullLikes){
-                                return <AiOutlineHeart key={i} style={{fontSize: '1.5rem', color: '#0B59C8'}}/>
+                                    
+                                    return <AiOutlineHeart key={i} style={{fontSize: '1.5rem', color: '#0B59C8'}}/>
                                 }
                             })
                             : <AiOutlineHeart key={3}style={{fontSize: '1.5rem', color: '#0B59C8'}}/>

@@ -164,23 +164,11 @@ app.post('/postLike', async(req,res)=>{
     try{
         const like = await Like.find({postId: postId, userId: userId})
         if(like.length>0){
-
-           if(like[0].like === true){
-                
-                await Like.findOneAndUpdate({postId: postId, userId: userId}, {like: false}, {returnOriginal: false});
-                res.send(false);
-                await Post.findOneAndUpdate({_id: postId}, {$inc: {likes: -1}}, {returnOriginal: false});
-           }else{
-                
-                await Like.findOneAndUpdate({postId: postId, userId: userId},{like: true}, {returnOriginal: false})
-                res.send(true);
-                await Post.findOneAndUpdate({_id: postId}, {$inc: {likes: 1}}, {returnOriginal: false});
-           }
+            await Like.deleteOne({postId: postId, userId: userId})
         }else{
             const likeDB = new Like({
                 userId: userId,
                 postId: postId,
-                like: true
             })
             await likeDB.save()
             .then(
