@@ -62,6 +62,8 @@ app.post('/login', async(req, res)=>{
             }else{
                 res.send('notFound')
             }
+        }else{
+            res.send('notFound')
         }
 
     }catch(error){
