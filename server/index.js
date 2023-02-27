@@ -19,13 +19,7 @@ mongoose.connect(uri)
 .then(() =>console.log('Base de datos conectada.'))
 .catch(e => console.log(e));
 
-const corsOptions = {
-    origin: 'https://react-wegram-frontend.vercel.app/',
-    preflightContinue: false,
-    credentials: true
-}
-
-app.use(cors(corsOptions))
+app.use(cors())
 app.use(express.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
