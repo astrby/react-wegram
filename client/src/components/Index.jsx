@@ -1,6 +1,7 @@
 import React from 'react'
 import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
+import CardGroup from 'react-bootstrap/CardGroup'
 import Row from 'react-bootstrap/Row'
 import axios from 'axios'
 import { useEffect } from 'react'
@@ -33,7 +34,6 @@ const Index = () => {
           }else{
             setLike(true)
           }
-          console.log(like)
         }, 250);
     }else{
       window.scroll({top: 0})
@@ -51,22 +51,22 @@ const Index = () => {
   },[like])
 
   return (
-    <Container fluid='md' className='text-center w-75'>
+    <Container fluid='md' className='w-100'>
       {
         alert === 'errorLogin'
         ?
         <Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', left: 0, right: 0, width: '50%', marginTop: '-5rem'}}>{t("alert.errorLogin")}</Alert>
         : ''
       }
-      <h3 className='text-center pb-4'>{t("index.posts")}</h3>
-        <Row className='justify-content-center' style={{gridTemplateColumns: 'repeat(auto-fit, minmax(210px, max-content))'}}>
+      <h3 className='pb-4 text-center'>{t("index.posts")}</h3>
+        <CardGroup className='ms-5'>
           {
             posts.length !== 0
             ?
               posts.map((post, i)=>{
                 var repetido = false;
-                return <Card key={i} className='text-center mb-1' style={{maxWidth: '18rem',minWidth:'18rem', marginRight:'1rem', marginTop:'1rem', maxHeight:'25rem', minHeight:'25rem'}}>
-                  <Card.Img src={post.urlImage} style={{width: '15rem', height: '17rem', marginLeft:'-0.8rem', width:'110%', borderBottomLeftRadius:'0', borderBottomRightRadius: '0'}}/>
+                return <Card key={i} className='text-center mb-1' style={{maxWidth: '18rem',minWidth:'18rem', marginRight:'1rem', marginTop:'1rem', maxHeight:'25rem', minHeight:'25rem', borderRadius: '5px'}}>
+                  <Card.Img src={post.urlImage} style={{width: '15rem', height: '17rem', width:'100%', borderBottomLeftRadius:'0', borderBottomRightRadius: '0'}}/>
                   <Card.Body className='mt-3'>
                     <Card.Text><a href={`/${post.userId}`} style={{textDecoration: 'none', fontWeight: 'bold'}}>{post.username}</a> {post.description}</Card.Text>
                     <Container className='text-center'>
@@ -99,7 +99,7 @@ const Index = () => {
             : 
               <h4 style={{marginTop: '2rem'}}>{t("index.noposts")}</h4>
           }
-        </Row>
+        </CardGroup>
     </Container>
   )
 }
