@@ -52,18 +52,18 @@ const Registration = () => {
       {
         alert === 'errorFill'
         ?
-          <Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', width: '40%', left: '0', right: '0', marginTop: '-4rem'}}>{t("alert.errorFill")}
+          <Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', width: '300px', left: '0', right: '0', marginTop: '-4rem'}}>{t("alert.errorFill")}
           </Alert>
         : alert ==='exists'
         ? 
         <Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', left:'0', right
-        :'0', width: '40%', marginTop:'-4rem'}}>{t("alert.errorEmail")}
+        :'0', width: '300px', marginTop:'-4rem'}}>{t("alert.errorEmail")}
         </Alert>
         : 
         alert ==='success'
         ? 
           <Alert variant='success' className='mx-auto text-center' style={{position: 'absolute', left:'0', right
-        :'0', width: '40%', marginTop:'-4rem'}}>{t("alert.registered")}</Alert>
+        :'0', width: '300px', marginTop:'-4rem'}}>{t("alert.registered")}</Alert>
         :''
       }
 

@@ -55,7 +55,7 @@ const Index = () => {
       {
         alert === 'errorLogin'
         ?
-        <Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', left: 0, right: 0, width: '50%', marginTop: '-5rem'}}>{t("alert.errorLogin")}</Alert>
+        <Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', left: 0, right: 0, width: '300px', marginTop: '-5rem'}}>{t("alert.errorLogin")}</Alert>
         : ''
       }
       <h3 className='pb-4 text-center'>{t("index.posts")}</h3>

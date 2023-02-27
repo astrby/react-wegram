@@ -43,10 +43,10 @@ const Contacto = () => {
         alert === 'errorFill'
         ?
         <Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', left
-      : '0', right:'0', width:'40%', marginTop: '-5rem'}}>{t("alert.errorFill")}</Alert>
+      : '0', right:'0', width:'300px', marginTop: '-5rem'}}>{t("alert.errorFill")}</Alert>
         : alert === 'sent'
         ?<Alert variant='success' className='mx-auto text-center' style={{position: 'absolute', left
-        : '0', right:'0', width:'40%', marginTop: '-5rem'}}>{t("alert.sent")}</Alert>
+        : '0', right:'0', width:'300px', marginTop: '-5rem'}}>{t("alert.sent")}</Alert>
         :''
       }
       <h5 className='text-center'>{t("contact.comment")}</h5>
