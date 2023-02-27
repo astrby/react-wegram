@@ -27,7 +27,7 @@ const Registration = () => {
         setAlert('');
       }, 2000)
     }else{
-      const peticion = await axios.post('https://react-wegram.vercel.app/registration',{username: username, name: name, email: email, password: password})
+      const peticion = await axios.post('https://react-wegram-production.up.railway.app/registration',{username: username, name: name, email: email, password: password})
 
       if(peticion.data === 'exists'){
         setAlert('exists');

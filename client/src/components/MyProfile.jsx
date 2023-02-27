@@ -26,9 +26,7 @@ const Profile = () => {
         console.log(loginData[0].id)
         e.preventDefault()
         const img = document.getElementById('img').files[0];
-
         uploadBytes(storageRef, img);
-
         window.location.reload();
     }
 
@@ -46,7 +44,7 @@ const Profile = () => {
             loginChange({...user, name: name})
         }
         
-        await axios.post('https://react-wegram.vercel.app/editProfile', {
+        await axios.post('https://react-wegram-production.up.railway.app/editProfile', {
         id: loginData[0].id, username: username, name: name});
 
     }

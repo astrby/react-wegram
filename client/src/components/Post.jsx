@@ -29,7 +29,7 @@ const Post = () => {
     
     const handleLike = async(postId) =>{
         if(loginData.length >0){
-            await axios.post('https://react-wegram.vercel.app/postLike',{
+            await axios.post('https://react-wegram-production.up.railway.app/postLike',{
             userId: loginData[0].id, postId: postId
             })
             if(like === true){
@@ -55,7 +55,7 @@ const Post = () => {
                     setAlert('');
                 }, 1500);
             }else{
-                await axios.post('https://react-wegram.vercel.app/postComment',{
+                await axios.post('https://react-wegram-production.up.railway.app/postComment',{
                     userId: loginData[0].id, postId: postId, comment: comment
                 })
                 console.log(comment+" "+postId )

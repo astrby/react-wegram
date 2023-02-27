@@ -29,7 +29,7 @@ const Login = () => {
               setAlert('')
             }, 2000);
         }else {
-            const peticion = await axios.post('https://react-wegram.vercel.app/login', {email: email, password: password})
+            const peticion = await axios.post('https://react-wegram-production.up.railway.app/login', {email: email, password: password})
             if(peticion.data === 'notFound'){
                 setAlert('errorAccount')
                 setTimeout(() => {

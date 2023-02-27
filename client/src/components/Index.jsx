@@ -21,17 +21,20 @@ const Index = () => {
   const[t, i18n] = useTranslation("global");
   const loginData = userData((state)=>state.user)
   const[likes, setLikes] = useState([])
-  const[like, setLike] = useState(true);
+  const[like, setLike] = useState(false);
   const[alert, setAlert] = useState('');
 
   const handleLikes = (postId) =>{
     if(loginData.length > 0){
         postLike(loginData[0].id, postId);
-        if(like === true){
-          setLike(false);
-        }else{
-          setLike(true)
-        }
+        setTimeout(() => {
+          if(like === true){
+            setLike(false);
+          }else{
+            setLike(true)
+          }
+          console.log(like)
+        }, 250);
     }else{
       window.scroll({top: 0})
       setAlert('errorLogin');
@@ -48,7 +51,7 @@ const Index = () => {
   },[like])
 
   return (
-    <Container fluid='md' className='text-center w-100'>
+    <Container fluid='md' className='text-center w-75'>
       {
         alert === 'errorLogin'
         ?
@@ -56,13 +59,13 @@ const Index = () => {
         : ''
       }
       <h3 className='text-center pb-4'>{t("index.posts")}</h3>
-        <Row className='justify-content-center'>
+        <Row className='justify-content-center' style={{gridTemplateColumns: 'repeat(auto-fit, minmax(210px, max-content))'}}>
           {
             posts.length !== 0
             ?
               posts.map((post, i)=>{
                 var repetido = false;
-                return <Card key={i} className='text-center ms-1 mb-1' style={{maxWidth: '18rem',minWidth:'18rem', marginRight:'1rem', marginTop:'1rem', maxHeight:'25rem', minHeight:'25rem'}}>
+                return <Card key={i} className='text-center mb-1' style={{maxWidth: '18rem',minWidth:'18rem', marginRight:'1rem', marginTop:'1rem', maxHeight:'25rem', minHeight:'25rem'}}>
                   <Card.Img src={post.urlImage} style={{width: '15rem', height: '17rem', marginLeft:'-0.8rem', width:'110%', borderBottomLeftRadius:'0', borderBottomRightRadius: '0'}}/>
                   <Card.Body className='mt-3'>
                     <Card.Text><a href={`/${post.userId}`} style={{textDecoration: 'none', fontWeight: 'bold'}}>{post.username}</a> {post.description}</Card.Text>

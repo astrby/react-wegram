@@ -40,7 +40,7 @@ const CreatePost = () => {
             
             uploadBytes(storageRef, img).then((snapshot)=>{
                 getDownloadURL(snapshot.ref).then(async(urlImage)=>{
-                    await axios.post("https://react-wegram.vercel.app/createPost", {description: description, userId: userId, username: username, urlImage: urlImage})
+                    await axios.post("https://react-wegram-production.up.railway.app/createPost", {description: description, userId: userId, username: username, urlImage: urlImage})
                 })
             })
         }
