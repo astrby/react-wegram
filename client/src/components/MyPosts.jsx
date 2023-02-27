@@ -48,7 +48,7 @@ const MyPosts = () => {
     return (
         <Container fluid='md' className='text-center w-100'>
             <h3 className='text-center'>{t("myposts.myposts")}</h3>
-            <Row className='justify-content-center' style={{gridTemplateColumns: 'repeat(auto-fit, minmax(210px, max-content))'}}>
+            <CardGroup className='ms-5'>
             {
                 posts.length !== 0
                 ?
@@ -88,7 +88,7 @@ const MyPosts = () => {
                 })
                 : <h4 style={{ marginTop: '2rem'}}>No hay publicaciones.</h4>
             }
-            </Row>
+            </CardGroup>
         </Container>
     )
 }

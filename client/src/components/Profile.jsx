@@ -78,7 +78,7 @@ const Profile = () => {
           <Alert variant='danger' className='mx-auto text-center' style={{position: 'absolute', left: 0, right: 0, width: '300px', marginTop: '-5rem'}}>{t("alert.errorLogin")}</Alert>
           :''
         }
-        <Row className='justify-content-center' style={{gridTemplateColumns: 'repeat(auto-fit, minmax(210px, max-content))'}}>
+        <CardGroup className='ms-5'>
           {
             posts.length > 0
             ?
@@ -134,7 +134,7 @@ const Profile = () => {
             : 
               <h4 style={{marginTop: '2rem'}}>{t("index.noposts")}</h4>
           }
-        </Row>
+        </CardGroup>
     </Container>
   )
 }
