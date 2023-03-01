@@ -1,3 +1,5 @@
+![alt text](https://github.com/astrby/react-wegram/blob/main/ReadmeImgs/logo.jpg?raw=true)
+
 # Wegram
 
 Aplicación web (Frontend y Backend) en donde los usuarios tienen la posibilidad de subir imágenes.
