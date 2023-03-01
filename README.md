@@ -65,8 +65,8 @@ Para el cliente:
 
 ## Capturas de pantalla
 
-![alt text](https://github.com/astrby/react-wegram/ReadmeImgs/1.jpg?raw=true)
-![alt text](https://github.com/astrby/react-wegram/ReadmeImgs/2.jpg?raw=true)
+![alt text](https://github.com/astrby/react-wegram/blob/main/ReadmeImgs/1.jpg?raw=true)
+![alt text](https://github.com/astrby/react-wegram/blob/main/ReadmeImgs/2.jpg?raw=true)
 
 ## Author
 
